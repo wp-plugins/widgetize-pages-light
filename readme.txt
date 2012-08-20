@@ -12,7 +12,7 @@ Drop widgets in page or post content area. Widgetize a page. Build your custom p
 
 == Description ==
 
-You can now easily widgetize a page and drop any WordPress widget in a page or post content area so you can build your own unique page layout. This is very easy and fun to do and requires no coding knowledge at all.
+You can now easily widgetize a page and drop widget in page or post content area. Adding widgets on pages is a very flexible way to build your own unique page layout. This is very easy and fun to do and requires no coding knowledge at all.
 
 You can use as many widget areas (sidebars) in as many pages/posts as you need. Creating sidebars (widget areas) is unlimited. 
 
