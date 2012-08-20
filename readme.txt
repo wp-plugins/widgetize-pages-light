@@ -18,6 +18,12 @@ You can use as many widget areas (sidebars) in as many pages/posts as you need. 
 
 The plugin has very easy and intuitive administration area designed to fit into the core WordPress design. Check out the screenshots section or just download it and try it out.
 
+
+Upgrade to the full version of [Sidebar and Widget Manager](http://otwthemes.com/product/sidebar-widget-manager-for-wordpress/?utm_source=wp.org&utm_medium=page&utm_content=upgrade&utm_campaign=wpl) |
+[Demo site](http://otwthemes.com/demos/sidebar-widget-manager?utm_source=wp.org&utm_medium=page&utm_content=upgrade&utm_campaign=wpl) | 
+[Video overview](http://www.youtube.com/watch?v=WT9UK1eX4C8)
+
+
 How it works:
 
 * Create a custom sidebar(widget area)
@@ -27,13 +33,6 @@ How it works:
 Advanced users:
 
 * Add any sidebar created with this plugin in any part of your wordpress site. To do that use the shortcode of the sidebar you want to add and the do_shortcode WordPress function in any of the template files of your theme.
-
-
-Upgrade to the full version of [Sidebar and Widget Manager](http://otwthemes.com/product/sidebar-widget-manager-for-wordpress/?utm_source=wp.org&utm_medium=page&utm_content=upgrade&utm_campaign=wpl) |
-[Demo site](http://otwthemes.com/demos/sidebar-widget-manager?utm_source=wp.org&utm_medium=page&utm_content=upgrade&utm_campaign=wpl) | 
-[Video overview](http://www.youtube.com/watch?v=WT9UK1eX4C8)
-
-
 
 Follow on [Twitter](http://twitter.com/OTWthemes) |
 [Facebook](http://www.facebook.com/pages/OTWthemes/250294028325665) |
@@ -59,11 +58,3 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 
 = 1.0 =
 * Initial release
-
-
-== Upgrade notice ==
-
-
-
-== Arbitrary section 1 ==
-
