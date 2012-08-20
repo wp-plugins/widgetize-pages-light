@@ -2,7 +2,7 @@
 /**
 Plugin Name: Widgetize pages Light
 Plugin URI: http://otwthemes.com/?utm_source=wp.org&utm_medium=admin&utm_content=site&utm_campaign=wpl
-Description:  Get full control over your sidebars (widgetized areas) and widgets. You can now customize each page with specific content and widgets that are relative to the content on that page. No coding required.
+Description: Drop widgets in page or post content area. Widgetize a page. Build your custom page layout in no time. No coding, easy and fun! 
 Author: OTWthemes.com
 Version: 1.0
 Author URI: http://otwthemes.com/?utm_source=wp.org&utm_medium=admin&utm_content=site&utm_campaign=wpl
