@@ -24,7 +24,7 @@ Upgrade to the full version of [Sidebar and Widget Manager](http://otwthemes.com
 [Video overview](http://www.youtube.com/watch?v=WT9UK1eX4C8)
 
 
-How it works:
+How Widgetize Pages Light works:
 
 * Create a custom sidebar(widget area)
 * Copy the sidebar shortcode and paste it in the page editor wherever in the content you need it
