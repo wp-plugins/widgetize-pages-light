@@ -1,16 +1,18 @@
 === Widgetize Pages Light ===
 Contributors: OTWthemes
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQH6CMTR42KS2
-Tags: widgetize page, widgets in page, custom sidebar, widgets, sidebar, widget area
+Tags: widgetize page, widgets in page, custom sidebar, widgets, sidebar, widget area, widgetized pages, custom layout, widgets on pages
 Requires at least: 3.0
 Tested up to: 3.4
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Drop widgets in page or post content area. Widgetize a page. Build your custom page layout in no time. No coding, easy and fun!
+Drop widgets in page or post content area. Widgetized pages. Build your custom page layout in no time. No coding, easy and fun!
 
 == Description ==
+
+Widgetized pages in WordPress are very powerful tool. Have you ever wanted to drag and drop a widget in a page content area, but the only widgetized sections of your theme are usually sidebars and footers?
 
 You can now easily widgetize a page and drop widget in page or post content area. Adding widgets on pages is a very flexible way to build your own unique page layout. This is very easy and fun to do and requires no coding knowledge at all.
 
