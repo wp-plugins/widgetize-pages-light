@@ -4,7 +4,7 @@ Plugin Name: Widgetize pages Light
 Plugin URI: http://otwthemes.com/?utm_source=wp.org&utm_medium=admin&utm_content=site&utm_campaign=wpl
 Description: Drop widgets in page or post content area. Widgetize a page. Build your custom page layout in no time. No coding, easy and fun! 
 Author: OTWthemes.com
-Version: 1.0
+Version: 1.1
 Author URI: http://otwthemes.com/?utm_source=wp.org&utm_medium=admin&utm_content=site&utm_campaign=wpl
 */
 $wp_int_items = array(
@@ -14,6 +14,8 @@ $wp_int_items = array(
 global $otw_plugin_options;
 
 $otw_plugin_options = get_option( 'otw_plugin_options' );
+
+$otw_plugin_url = plugins_url( substr( dirname( __FILE__ ), strlen( dirname( dirname( __FILE__ ) ) ) ) );
 
 include_once( plugin_dir_path( __FILE__ ).'/include/otw_plugin_activation.php' );
 require_once( plugin_dir_path( __FILE__ ).'/include/otw_functions.php' );
@@ -56,8 +58,9 @@ function otw_wpl_info(){
   * add the top level menu and register the submenus.
   */ 
 function otw_wpl_admin_actions(){
+	global $otw_plugin_url;
 	
-	add_menu_page('Widgetize pages', 'Widgetize pages', 'manage_options', 'otw-wpl', 'otw_wpl_sidebars_list', plugins_url( 'otw_wpl/images/application_side_boxes.png' ) );
+	add_menu_page('Widgetize pages', 'Widgetize pages', 'manage_options', 'otw-wpl', 'otw_wpl_sidebars_list', $otw_plugin_url.'/images/application_side_boxes.png' );
 	add_submenu_page( 'otw-wpl', 'Sidebars', 'Sidebars', 'manage_options', 'otw-wpl', 'otw_wpl_sidebars_list' );
 	add_submenu_page( 'otw-wpl', 'Add Sidebar', 'Add Sidebar', 'manage_options', 'otw-wpl-add', 'otw_wpl_sidebars_manage' );
 	add_submenu_page( 'otw-wpl', 'Info', 'Info', 'manage_options', 'otw-wpl-info', 'otw_wpl_info' );
@@ -75,7 +78,8 @@ function enqueue_wpl_scripts( $requested_page ){
  * include needed styles
  */
 function enqueue_wpl_styles( $requested_page ){
-	wp_enqueue_style( 'otw_wpl_sidebar', plugins_url('otw_wpl/css/otw_sbm_admin.css'), array( 'thickbox' ), '1.1' );
+	global $otw_plugin_url;
+	wp_enqueue_style( 'otw_wpl_sidebar', $otw_plugin_url.'/css/otw_sbm_admin.css', array( 'thickbox' ), '1.1' );
 }
 
 /**
