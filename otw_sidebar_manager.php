@@ -15,7 +15,7 @@ global $otw_plugin_options;
 
 $otw_plugin_options = get_option( 'otw_plugin_options' );
 
-$otw_plugin_url = plugins_url( substr( dirname( __FILE__ ), strlen( dirname( dirname( __FILE__ ) ) ) ) );
+$otw_wpl_plugin_url = plugins_url( substr( dirname( __FILE__ ), strlen( dirname( dirname( __FILE__ ) ) ) ) );
 
 include_once( plugin_dir_path( __FILE__ ).'/include/otw_plugin_activation.php' );
 require_once( plugin_dir_path( __FILE__ ).'/include/otw_functions.php' );
@@ -58,9 +58,9 @@ function otw_wpl_info(){
   * add the top level menu and register the submenus.
   */ 
 function otw_wpl_admin_actions(){
-	global $otw_plugin_url;
+	global $otw_wpl_plugin_url;
 	
-	add_menu_page('Widgetize pages', 'Widgetize pages', 'manage_options', 'otw-wpl', 'otw_wpl_sidebars_list', $otw_plugin_url.'/images/application_side_boxes.png' );
+	add_menu_page('Widgetize pages', 'Widgetize pages', 'manage_options', 'otw-wpl', 'otw_wpl_sidebars_list', $otw_wpl_plugin_url.'/images/application_side_boxes.png' );
 	add_submenu_page( 'otw-wpl', 'Sidebars', 'Sidebars', 'manage_options', 'otw-wpl', 'otw_wpl_sidebars_list' );
 	add_submenu_page( 'otw-wpl', 'Add Sidebar', 'Add Sidebar', 'manage_options', 'otw-wpl-add', 'otw_wpl_sidebars_manage' );
 	add_submenu_page( 'otw-wpl', 'Info', 'Info', 'manage_options', 'otw-wpl-info', 'otw_wpl_info' );
@@ -78,8 +78,8 @@ function enqueue_wpl_scripts( $requested_page ){
  * include needed styles
  */
 function enqueue_wpl_styles( $requested_page ){
-	global $otw_plugin_url;
-	wp_enqueue_style( 'otw_wpl_sidebar', $otw_plugin_url.'/css/otw_sbm_admin.css', array( 'thickbox' ), '1.1' );
+	global $otw_wpl_plugin_url;
+	wp_enqueue_style( 'otw_wpl_sidebar', $otw_wpl_plugin_url.'/css/otw_sbm_admin.css', array( 'thickbox' ), '1.1' );
 }
 
 /**
