@@ -61,7 +61,7 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 
 = 1.3 =
 
-* Fix: CSS loading paths
+* Fix: CSS loading paths.
 
 = 1.2 =
 
