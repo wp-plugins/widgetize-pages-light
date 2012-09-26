@@ -102,6 +102,9 @@ function otw_wpl_plugin_init(){
 	if( is_admin() ){
 		require_once( plugin_dir_path( __FILE__ ).'/otw_process_actions.php' );
 	}else{
+		
+		wp_register_style('otw_sbm.css', $otw_wpl_plugin_url .'/css/otw_sbm.css' );
+		wp_enqueue_style('otw_sbm.css');
 	}
 }
 
