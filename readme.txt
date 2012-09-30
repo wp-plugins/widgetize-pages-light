@@ -23,7 +23,7 @@ The plugin has very easy and intuitive administration area designed to fit into 
 
 Upgrade to the full version of [Sidebar and Widget Manager](http://otwthemes.com/product/sidebar-widget-manager-for-wordpress/?utm_source=wp.org&utm_medium=page&utm_content=upgrade&utm_campaign=wpl) |
 [Demo site](http://otwthemes.com/demos/sidebar-widget-manager?utm_source=wp.org&utm_medium=page&utm_content=upgrade&utm_campaign=wpl) | 
-[Video overview](http://www.youtube.com/watch?v=WT9UK1eX4C8)
+[Video overview](http://www.youtube.com/watch?v=Yd8A_7ohCEc)
 
 
 How Widgetize Pages Light works:
