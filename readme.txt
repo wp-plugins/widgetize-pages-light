@@ -62,6 +62,10 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 
 == Changelog ==
 
+= 1.4 =
+
+* Added: Insert Sidebar Shortcode button in page/post editor
+
 = 1.3 =
 
 * Fix: CSS loading paths
