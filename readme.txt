@@ -3,8 +3,8 @@ Contributors: OTWthemes
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQH6CMTR42KS2
 Tags: widgetize page, widgets in page, custom sidebar, widgets, sidebar, widget area, widgetized pages, custom layout, widgets on pages
 Requires at least: 3.0
-Tested up to: 3.4
-Stable tag: 1.3
+Tested up to: 3.4.2
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Drop widgets in page or post content area. Widgetized pages. Build your custom p
 
 Widgetized pages in WordPress are very powerful tool. Have you ever wanted to drag and drop a widget in a page content area, but the only widgetized sections of your theme are usually sidebars and footers?
 
-You can now easily widgetize a page and drop widget in page or post content area. Adding widgets on pages is a very flexible way to build your own unique page layout. This is very easy and fun to do and requires no coding knowledge at all.
+You can now easily widgetize a page and drop widget in page or post content area or any template file. Adding widgets on pages is a very flexible way to build your own unique page layout. This is very easy and fun to do and requires no coding knowledge at all.
 
 You can use as many widget areas (sidebars) in as many pages/posts as you need. Creating sidebars (widget areas) is unlimited. 
 
@@ -30,7 +30,7 @@ Sidebar and Widget Manager has easy column [interface for Widgetizing Pages](htt
 How Widgetize Pages Light works:
 
 * Create a custom sidebar(widget area)
-* Copy the sidebar shortcode and paste it in the page editor wherever in the content you need it
+* Insert the sidebar shortcode in the page editor wherever in the content you need it - either use the Insert Sidebar Shortcode button in the editor or copy/paste the sidebar shortcode
 * Go to your widgets section (Appearance -> Widgets) and drop some widgets in your new sidebar
 
 Advanced users:
@@ -55,8 +55,10 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 
 1. Create a custom sidebar(widget area)
 2. Get the shortcode
-3. Widgetize a page or post 
-4. Go to your widgets section (Appearance -> Widgets) and drop some widgets in your new sidebar
+3. Insert Sidebar ShortCode button
+4. Select sidebar to insert
+5. Shortcode 
+6. Go to your widgets section (Appearance -> Widgets) and drop some widgets in your new sidebar
 
 == Changelog ==
 

@@ -101,8 +101,29 @@ function otw_wpl_plugin_init(){
 	
 	if( is_admin() ){
 		require_once( plugin_dir_path( __FILE__ ).'/otw_process_actions.php' );
+		
+		if( get_user_option('rich_editing') ){
+			add_filter('mce_external_plugins', 'add_otw_wpl_tinymce_plugin');
+			add_filter('mce_buttons', 'register_otw_wpl_tinymce_button');
+		}
 	}else{
 	}
+}
+
+/**
+ * add tinymce plugin
+ */
+function add_otw_wpl_tinymce_plugin($plugin_array){
+	global $otw_wpl_plugin_url;
+	$plugin_array['otwsbm'] = $otw_wpl_plugin_url.'/js/otw_editor_plugin.js';
+	return $plugin_array;
+}
+/**
+ * register button plugin
+ */
+function register_otw_wpl_tinymce_button($buttons){
+	array_push($buttons, "separator", "otwsbm");
+	return $buttons;
 }
 
 function otw_wpl_admin_notice(){

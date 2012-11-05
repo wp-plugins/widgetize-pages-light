@@ -106,7 +106,7 @@ Follow on <a href="http://twitter.com/OTWthemes">Twitter</a> | <a href="http://w
 			<?php }?>
 		</tbody>
 	</table>
-	<div class="updated einfo"><p><?php _e('Use the shordcode feature to add a sidebar in your pages/posts. Shortcodes can be added in: <br />- page/post content - copy the shortcode and paste it in the editor of a page/post <br />- any page template using the do_shortcode WP function.<br /><br /> Use the Sidebar ID to build your shortcodes. <br />Example: [otw_is sidebar=otw-sidebar-1]' );?></p></div>
+	<div class="updated einfo"><p><?php _e('Use the shordcode feature to add a sidebar in your pages/posts/template files. Shortcodes can be added in: <br />- page/post content - select the sidebar you want to insert from the Insert Sidebar ShortCode button in your page/post editor. <br />- page/post content - copy the shortcode and paste it in the editor of a page/post. <br />- any page template using the do_shortcode WP function.<br /><br /> Use the Sidebar ID to build your shortcodes. <br />Example: [otw_is sidebar=otw-sidebar-1]' );?></p></div>
 	<?php }else{ ?>
 		<p><?php _e('No custom sidebars found.')?></p>
 	<?php } ?>
