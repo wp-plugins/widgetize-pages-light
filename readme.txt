@@ -65,6 +65,7 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 = 1.5 =
 
 Manually updating to versiion 1.5. requires deactivation of the old version first. If you are using the wordpress updater it will do all the job for you.
+
 * Updated: Activation method and replacement functionality
 
 = 1.4 =
