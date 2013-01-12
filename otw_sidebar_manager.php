@@ -4,7 +4,7 @@ Plugin Name: Widgetize pages Light
 Plugin URI: http://otwthemes.com/?utm_source=wp.org&utm_medium=admin&utm_content=site&utm_campaign=wpl
 Description: Drop widgets in page or post content area. Widgetize a page. Build your custom page layout in no time. No coding, easy and fun! 
 Author: OTWthemes.com
-Version: 1.4
+Version: 1.5
 Author URI: http://otwthemes.com/?utm_source=wp.org&utm_medium=admin&utm_content=site&utm_campaign=wpl
 */
 $wp_int_items = array(
@@ -17,7 +17,6 @@ $otw_plugin_options = get_option( 'otw_plugin_options' );
 
 $otw_wpl_plugin_url = plugins_url( substr( dirname( __FILE__ ), strlen( dirname( dirname( __FILE__ ) ) ) ) );
 
-include_once( plugin_dir_path( __FILE__ ).'/include/otw_plugin_activation.php' );
 require_once( plugin_dir_path( __FILE__ ).'/include/otw_functions.php' );
 
 /** calls list of available sidebars
@@ -90,6 +89,7 @@ function enqueue_wpl_styles( $requested_page ){
  */
 add_action('admin_menu', 'otw_wpl_admin_actions');
 add_action('admin_notices', 'otw_wpl_admin_notice');
+add_filter('sidebars_widgets', 'otw_sidebars_widgets');
 
 /**
  * include plugin js and css.
@@ -106,8 +106,4 @@ if( is_admin() ){
  *call init plugin function
  */
 add_action('init', 'otw_wpl_plugin_init', 100 );
-
-include_once( plugin_dir_path( __FILE__ ).'/include/otw_plugin_activation.php' );
-
-register_activation_hook(  __FILE__,'otw_wpl_plugin_activate');
-register_deactivation_hook(  __FILE__,'otw_wpl_plugin_deactivate');
+?>

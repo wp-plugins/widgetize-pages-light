@@ -1,21 +1,4 @@
 <?php
-/** list of functions used by otw sidebar
-  *
-  */
-if( !function_exists( 'dynamic_sidebar' ) ){
-	function dynamic_sidebar( $index ){
-		return otw_dynamic_sidebar( $index );
-	}
-}else{
-	otw_wpl_plugin_activate();
-}
-if( !function_exists( 'is_active_sidebar' ) ){
-	function is_active_sidebar( $index ){
-		return otw_is_active_sidebar( $index );
-	}
-}else{
-	otw_wpl_plugin_activate();
-}
 /** init plugin
   *
   */

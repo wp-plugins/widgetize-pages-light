@@ -3,8 +3,8 @@ Contributors: OTWthemes
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQH6CMTR42KS2
 Tags: widgetize page, widgets in page, custom sidebar, widgets, sidebar, widget area, widgetized pages, custom layout, widgets on pages
 Requires at least: 3.0
-Tested up to: 3.4.2
-Stable tag: 1.4
+Tested up to: 3.5
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,11 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 6. Go to your widgets section (Appearance -> Widgets) and drop some widgets in your new sidebar
 
 == Changelog ==
+
+= 1.5 =
+
+Manually updating to versiion 1.5. requires deactivation of the old version first. If you are using the wordpress updater it will do all the job for you.
+* Updated: Activation method and replacement functionality
 
 = 1.4 =
 

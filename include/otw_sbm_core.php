@@ -1,4 +1,52 @@
 <?php
+if( !function_exists( 'otw_sbm_index' ) ){
+	function otw_sbm_index( $index, $sidebars_widgets ){
+		
+		global $wp_registered_sidebars, $otw_replaced_sidebars;
+		
+		if( isset( $otw_replaced_sidebars[ $index ] ) ){//we have set replacemend.
+		
+			$requested_objects = otw_get_current_object();
+			
+			//check if the new sidebar is valid for the current requested resource
+			foreach( $otw_replaced_sidebars[ $index ] as $repl_sidebar ){
+				
+				if( isset( $wp_registered_sidebars[ $repl_sidebar ] ) ){
+					
+					if( $wp_registered_sidebars[ $repl_sidebar ]['status'] == 'active'  ){
+						
+						foreach( $requested_objects as $objects ){
+						
+							list( $object, $object_id ) = $objects;
+						
+							if( $object && $object_id ){
+								
+								$tmp_index = otw_validate_sidebar_index( $repl_sidebar, $object, $object_id );
+								
+								if( $tmp_index ){
+									if ( !empty($sidebars_widgets[$tmp_index]) ){
+										$sidebars_widgets[$tmp_index] = otw_filter_siderbar_widgets( $tmp_index, $sidebars_widgets );
+										
+										if( count( $sidebars_widgets[$tmp_index] ) ){
+											$index = $tmp_index;
+											break 2;
+										}
+									}
+								}
+								
+							}//end hs object and object id
+							
+						}//end loop requested objects
+						
+					}
+				}
+			}
+		}
+		
+		return $index;
+	}
+}
+
 /** check if sidebar is active
   * @param string
   * @return string
@@ -722,6 +770,39 @@ if( !function_exists( 'otw_wp_item_attribute' ) ){
 					}
 				break;
 		}
+	}
+}
+
+/** sidebar widgets hook
+  *  @param array
+  *  @return array
+  */
+if( !function_exists( 'otw_sidebars_widgets' ) ){
+	function otw_sidebars_widgets( $sidebars_widgets ){
+		
+		global $otw_registered_sidebars, $otw_replaced_sidebars;
+		
+		if( !is_array( $otw_replaced_sidebars ) || !count( $otw_replaced_sidebars ) ){
+		//	return $sidebars_widgets;
+		}
+		
+		if( is_admin() ){
+			return $sidebars_widgets;
+		}
+		
+		foreach( $sidebars_widgets as $index => $widgets ){
+			
+			
+			$tmp_index = otw_sbm_index( $index, $sidebars_widgets );
+			
+			if ( !empty($sidebars_widgets[$tmp_index]) ){
+				$sidebars_widgets[$index] = otw_filter_siderbar_widgets( $tmp_index, $sidebars_widgets );
+			}else{
+				$sidebars_widgets[$index] = $sidebars_widgets[$tmp_index];
+			}
+			
+		}
+		return $sidebars_widgets;
 	}
 }
 ?>
