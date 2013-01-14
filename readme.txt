@@ -12,6 +12,8 @@ Drop widgets in page or post content area. Widgetized pages. Build your custom p
 
 == Description ==
 
+Updating to version 1.5 - See the Change log tab.
+
 Widgetized pages in WordPress are very powerful tool. Have you ever wanted to drag and drop a widget in a page content area, but the only widgetized sections of your theme are usually sidebars and footers?
 
 You can now easily widgetize a page and drop widget in page or post content area or any template file. Adding widgets on pages is a very flexible way to build your own unique page layout. This is very easy and fun to do and requires no coding knowledge at all.
@@ -64,7 +66,7 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 
 = 1.5 =
 
-Manually updating to versiion 1.5. requires deactivation of the old version first. If you are using the wordpress updater it will do all the job for you.
+Updating to versiion 1.5. requires deactivation of the old version first! More info [here](http://otwthemes.com/updating-widgetize-pages-light-to-1-5-version-sidebar-manager-light-to-1-3-widget-manager-light-to-1-3/) 
 
 * Updated: Activation method and replacement functionality
 
