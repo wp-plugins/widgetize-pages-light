@@ -4,7 +4,7 @@
   */
 function otw_wpl_plugin_init(){
 	
-	global $wp_registered_sidebars, $otw_replaced_sidebars, $wp_int_items, $otw_wpl_plugin_url;
+	global $wp_registered_sidebars, $otw_replaced_sidebars, $wp_wpl_int_items, $otw_wpl_plugin_url;
 	
 	if( is_admin() ){
 		if( function_exists( 'otwrem_dynamic_sidebar' ) ){

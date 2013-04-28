@@ -63,7 +63,7 @@
 				<div id="post-body-content">
 					<div id="col-right">
 						<div class="form-field form-required">
-							<?php _e( 'Sidedabar title' );?>:
+							<?php _e( 'Sidebar title' );?>:
 							<strong><?php echo $otw_sidebar_values['sbm_title']?></strong>
 						</div>
 						<div class="form-field">

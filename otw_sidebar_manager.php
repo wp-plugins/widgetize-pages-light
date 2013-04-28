@@ -4,10 +4,10 @@ Plugin Name: Widgetize pages Light
 Plugin URI: http://otwthemes.com/?utm_source=wp.org&utm_medium=admin&utm_content=site&utm_campaign=wpl
 Description: Drop widgets in page or post content area. Widgetize a page. Build your custom page layout in no time. No coding, easy and fun! 
 Author: OTWthemes.com
-Version: 1.5
+Version: 1.6
 Author URI: http://otwthemes.com/?utm_source=wp.org&utm_medium=admin&utm_content=site&utm_campaign=wpl
 */
-$wp_int_items = array(
+$wp_wpl_int_items = array(
 	'page'              => array( array(), __( 'Pages' ), __( 'All pages' ) )
 );
 

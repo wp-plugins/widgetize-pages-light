@@ -2,7 +2,7 @@
 /** Create/edit otw sidebar
   *
   */
-	global $wp_registered_sidebars, $validate_messages, $wp_int_items;
+	global $wp_registered_sidebars, $validate_messages, $wp_wpl_int_items;
 	
 	$otw_sidebar_values = array(
 		'sbm_title'              =>  '',
@@ -43,8 +43,8 @@
 		}
 	}
 
-	foreach( $wp_int_items as $wp_item_type => $wp_item_data ){
-		$wp_int_items[ $wp_item_type ][0] = otw_get_wp_items( $wp_item_type );
+	foreach( $wp_wpl_int_items as $wp_item_type => $wp_item_data ){
+		$wp_wpl_int_items[ $wp_item_type ][0] = otw_get_wp_items( $wp_item_type );
 	}
 	
 /** set class name of each item block
@@ -71,78 +71,80 @@ function otw_sidebar_block_class( $item_type, $sidebar_data ){
   *  @param array
   *  @return void
   */
-function otw_sidebar_item_attributes( $tag, $item_type, $item_id, $sidebar_data, $item_data ){
-
-	$attributes = '';
-	
-	switch( $tag ){
-		case 'p':
-				$attributes_array = array();
-				if( isset( $_POST['otw_action'] ) ){
-					if( isset( $_POST[ 'otw_sbi_'.$item_type ][ $item_id ] ) || isset( $_POST[ 'otw_sbi_'.$item_type ][ 'all' ] ) ){
-						$attributes_array['class'][] = 'sitem_selected';
+if (!function_exists( "otw_sidebar_item_attributes" )){
+	function otw_sidebar_item_attributes( $tag, $item_type, $item_id, $sidebar_data, $item_data ){
+      
+		$attributes = '';
+		
+		switch( $tag ){
+			case 'p':
+					$attributes_array = array();
+					if( isset( $_POST['otw_action'] ) ){
+						if( isset( $_POST[ 'otw_sbi_'.$item_type ][ $item_id ] ) || isset( $_POST[ 'otw_sbi_'.$item_type ][ 'all' ] ) ){
+							$attributes_array['class'][] = 'sitem_selected';
+						}else{
+							$attributes_array['class'][] = 'sitem_notselected';
+						}
 					}else{
-						$attributes_array['class'][] = 'sitem_notselected';
+						if( isset( $sidebar_data['sbm_validfor'][ $item_type ]['all'] ) ){
+							$attributes_array['class'][] = 'sitem_selected';
+						}elseif( isset( $sidebar_data['sbm_validfor'][ $item_type ][ $item_id ] ) ){
+							$attributes_array['class'][] = 'sitem_selected';
+						}else{
+							$attributes_array['class'][] = 'sitem_notselected';
+						}
 					}
-				}else{
-					if( isset( $sidebar_data['sbm_validfor'][ $item_type ]['all'] ) ){
-						$attributes_array['class'][] = 'sitem_selected';
-					}elseif( isset( $sidebar_data['sbm_validfor'][ $item_type ][ $item_id ] ) ){
-						$attributes_array['class'][] = 'sitem_selected';
+					if( isset( $attributes_array['class'] ) ){
+						$attributes .= ' class="'.implode( ' ', $attributes_array['class'] ).'"';
+					}
+				break;
+			case 'c':
+					if( isset( $_POST['otw_action'] ) ){
+						if( isset( $_POST[ 'otw_sbi_'.$item_type ][ $item_id ] )  || isset( $_POST[ 'otw_sbi_'.$item_type ][ 'all' ] ) ){
+							$attributes .= ' checked="checked"';
+						}
 					}else{
-						$attributes_array['class'][] = 'sitem_notselected';
+						if( isset( $sidebar_data['sbm_validfor'][ $item_type ]['all'] ) ){
+							$attributes .= ' checked="checked"';
+						}elseif( isset( $sidebar_data['sbm_validfor'][ $item_type ][ $item_id ] ) ){
+							$attributes .= ' checked="checked"';
+						}
 					}
-				}
-				if( isset( $attributes_array['class'] ) ){
-					$attributes .= ' class="'.implode( ' ', $attributes_array['class'] ).'"';
-				}
-			break;
-		case 'c':
-				if( isset( $_POST['otw_action'] ) ){
-					if( isset( $_POST[ 'otw_sbi_'.$item_type ][ $item_id ] )  || isset( $_POST[ 'otw_sbi_'.$item_type ][ 'all' ] ) ){
-						$attributes .= ' checked="checked"';
-					}
-				}else{
-					if( isset( $sidebar_data['sbm_validfor'][ $item_type ]['all'] ) ){
-						$attributes .= ' checked="checked"';
-					}elseif( isset( $sidebar_data['sbm_validfor'][ $item_type ][ $item_id ] ) ){
-						$attributes .= ' checked="checked"';
-					}
-				}
-			break;
-		case 'ap':
-				if( isset( $_POST['otw_action'] ) ){
-					if( isset( $_POST[ 'otw_sbi_'.$item_type ][ $item_id ] ) ){
-						$attributes .= ' class="all sitem_selected"';
+				break;
+			case 'ap':
+					if( isset( $_POST['otw_action'] ) ){
+						if( isset( $_POST[ 'otw_sbi_'.$item_type ][ $item_id ] ) ){
+							$attributes .= ' class="all sitem_selected"';
+						}else{
+							$attributes .= ' class="all sitem_notselected"';
+						}
 					}else{
-						$attributes .= ' class="all sitem_notselected"';
+						if( isset( $sidebar_data['sbm_validfor'][ $item_type ][ $item_id ] ) ){
+							$attributes .= ' class="all sitem_selected"';
+						}else{
+							$attributes .= ' class="all sitem_notselected"';
+						}
 					}
-				}else{
-					if( isset( $sidebar_data['sbm_validfor'][ $item_type ][ $item_id ] ) ){
-						$attributes .= ' class="all sitem_selected"';
+				break;
+			case 'ac':
+					if( isset( $_POST['otw_action'] ) ){
+						if( isset( $_POST[ 'otw_sbi_'.$item_type ][ $item_id ] ) ){
+							$attributes .= ' checked="checked"';
+						}
 					}else{
-						$attributes .= ' class="all sitem_notselected"';
+						if( isset( $sidebar_data['sbm_validfor'][ $item_type ][ $item_id ] ) ){
+							$attributes .= ' checked="checked"';
+						}
 					}
-				}
-			break;
-		case 'ac':
-				if( isset( $_POST['otw_action'] ) ){
-					if( isset( $_POST[ 'otw_sbi_'.$item_type ][ $item_id ] ) ){
-						$attributes .= ' checked="checked"';
+				break;
+			case 'l':
+					if( isset( $item_data->_sub_level ) && $item_data->_sub_level ){
+						$attributes .= ' style="margin-left: '.( $item_data->_sub_level * 20 ).'px"';
 					}
-				}else{
-					if( isset( $sidebar_data['sbm_validfor'][ $item_type ][ $item_id ] ) ){
-						$attributes .= ' checked="checked"';
-					}
-				}
-			break;
-		case 'l':
-				if( isset( $item_data->_sub_level ) && $item_data->_sub_level ){
-					$attributes .= ' style="margin-left: '.( $item_data->_sub_level * 20 ).'px"';
-				}
-			break;
+				break;
+		}
+		echo $attributes;
 	}
-	echo $attributes;
 }
 ?>
 <div class="updated"><p>Check out the <a href="http://otwthemes.com/online-documentation-widgetize-pages-light/?utm_source=wp.org&utm_medium=admin&utm_content=docs&utm_campaign=wpl">Online documentation</a> for this plugin<br /><br /> 
@@ -174,7 +176,7 @@ Follow on <a href="http://twitter.com/OTWthemes">Twitter</a> | <a href="http://w
 					</div>
 					<div id="col-left">
 						<div class="form-field form-required">
-							<label for="sbm_title"><?php _e( 'Sidedabar title' );?></label>
+							<label for="sbm_title"><?php _e( 'Sidebar title' );?></label>
 							<input type="text" id="sbm_title" value="<?php echo $otw_sidebar_values['sbm_title']?>" tabindex="1" size="30" name="sbm_title"/>
 							<p><?php _e( 'The name is how it appears on your site.' );?></p>
 						</div>

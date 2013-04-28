@@ -15,29 +15,31 @@ if( !function_exists( 'otw_sbm_index' ) ){
 					
 					if( $wp_registered_sidebars[ $repl_sidebar ]['status'] == 'active'  ){
 						
-						foreach( $requested_objects as $objects ){
-						
-							list( $object, $object_id ) = $objects;
-						
-							if( $object && $object_id ){
-								
-								$tmp_index = otw_validate_sidebar_index( $repl_sidebar, $object, $object_id );
-								
-								if( $tmp_index ){
-									if ( !empty($sidebars_widgets[$tmp_index]) ){
-										$sidebars_widgets[$tmp_index] = otw_filter_siderbar_widgets( $tmp_index, $sidebars_widgets );
-										
-										if( count( $sidebars_widgets[$tmp_index] ) ){
-											$index = $tmp_index;
-											break 2;
+						if( otw_filter_strict_sidebar_index( $repl_sidebar ) ){
+							
+							foreach( $requested_objects as $objects ){
+							
+								list( $object, $object_id ) = $objects;
+							
+								if( $object && $object_id ){
+									
+									$tmp_index = otw_validate_sidebar_index( $repl_sidebar, $object, $object_id );
+									
+									if( $tmp_index ){
+										if ( !empty($sidebars_widgets[$tmp_index]) ){
+											$sidebars_widgets[$tmp_index] = otw_filter_siderbar_widgets( $tmp_index, $sidebars_widgets );
+											
+											if( count( $sidebars_widgets[$tmp_index] ) ){
+												$index = $tmp_index;
+												break 2;
+											}
 										}
 									}
-								}
+									
+								}//end hs object and object id
 								
-							}//end hs object and object id
-							
-						}//end loop requested objects
-						
+							}//end loop requested objects
+						}
 					}
 				}
 			}
@@ -182,6 +184,27 @@ if( !function_exists( 'otw_filter_siderbar_widgets' ) ){
 						}
 					}
 				}
+				
+				if( isset( $filtered_widgets ) && is_array( $filtered_widgets ) && count( $filtered_widgets ) ){
+					$collected_widgets = array();
+					foreach( $filtered_widgets as $widget_order => $widget_name ){
+						$collected_widgets[ $widget_name ] = $widget_order;
+					}
+					$collected_widgets = otw_filter_strict_widgets( $index, $collected_widgets );
+					
+					//fix the order of widgets
+					if( is_array( $collected_widgets ) && count( $collected_widgets ) ){
+						$filtered_widgets = array();
+						asort( $collected_widgets );
+						foreach( $collected_widgets as $tmp_widget => $tmp_order ){
+							$filtered_widgets[] = $tmp_widget;
+						}
+					}
+					else{
+						$filtered_widgets = array();
+					}
+				}
+
 				
 			}else{
 				$filtered_widgets = $sidebars_widgets[ $index ];
@@ -747,6 +770,8 @@ if( !function_exists( 'otw_wp_item_attribute' ) ){
 						default:
 								if( preg_match( "/^ctx_(.*)$/", $item_type, $matches ) ){
 									return $object->term_id;
+								}elseif( preg_match( "/^(.*)_in_ctx_(.*)$/", $item_type, $matches ) ){
+									return $object->term_id;
 								}
 								return $object->ID;
 							break;
@@ -803,6 +828,209 @@ if( !function_exists( 'otw_sidebars_widgets' ) ){
 			
 		}
 		return $sidebars_widgets;
+	}
+}
+
+if( !function_exists( 'otw_get_strict_filters' ) ){
+	function otw_get_strict_filters(){
+		
+		global $current_user;
+		$filters = array();
+		
+		//apply user roles
+		get_currentuserinfo();
+		
+		if( isset( $current_user->ID ) && intval( $current_user->ID ) && isset( $current_user->roles ) && is_array( $current_user->roles ) && count( $current_user->roles ) ){
+			
+			$filter_key = count( $filters );
+			$filters[ $filter_key ][0] = 'userroles';
+			$filters[ $filter_key ][1] = array();
+			foreach( $current_user->roles as $u_role ){
+				$filters[ $filter_key ][1][] = $u_role;
+			}
+			$filters[ $filter_key ][2] = 'any';
+		}
+		else
+		{
+			$filter_key = count( $filters );
+			$filters[ $filter_key ][0] = 'userroles';
+			$filters[ $filter_key ][1] = array();
+			$filters[ $filter_key ][1][] = 'notlogged';
+			$filters[ $filter_key ][2] = 'any';
+		}
+		
+		if( function_exists( 'icl_get_languages' ) && defined( 'ICL_LANGUAGE_CODE' ) ){
+			
+			$filter_key = count( $filters );
+			$filters[ $filter_key ][0] = 'wpmllanguages';
+			$filters[ $filter_key ][1] = array();
+			$filters[ $filter_key ][1][] = ICL_LANGUAGE_CODE;
+			$filters[ $filter_key ][2] = 'all';
+		}
+		return $filters;
+	}
+}
+/**
+ * check all colected widgets for a sidebar if match all strict filters
+ * @param string sidebar index
+ * @param array collected widgets
+ * @return array
+ */
+if( !function_exists( 'otw_filter_strict_widgets' ) ){
+	function otw_filter_strict_widgets( $index, $collected_widgets ){
+		
+		global  $wp_registered_sidebars;
+		
+		$filters = otw_get_strict_filters();
+		
+		$strict_filtered_widgets = $collected_widgets;
+		
+		if( is_array( $filters ) && count( $filters ) ){
+			
+			if( isset( $wp_registered_sidebars[ $index ] ) ){
+				
+				if( is_array( $strict_filtered_widgets ) && count( $strict_filtered_widgets ) ){
+				
+					$filters = otw_get_strict_filters();
+					
+					foreach( $collected_widgets as $widget => $widget_order){
+						
+						foreach( $filters as $filter ){
+							
+							switch( $filter[2] ){
+								case 'any':
+										$match_any = false;
+										
+										if( isset( $wp_registered_sidebars[$index]['widgets_settings'] ) &&  isset( $wp_registered_sidebars[$index]['widgets_settings'][$filter[0]] ) ){
+											
+											if( isset( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ]['_otw_wc'] ) && isset( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ]['_otw_wc'][ $widget ] ) && in_array( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ]['_otw_wc'][ $widget ] , array( 'vis', 'invis' ) )  ){
+												
+												if( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ]['_otw_wc'][ $widget ] == 'vis' ){
+													$match_any = true;
+												}
+											}else{
+												foreach( $filter[1] as $v_filter ){
+													
+													if( !isset( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ][ $v_filter ] ) || !isset( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ][ $v_filter ]['exclude_widgets'] ) || !isset( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ][ $v_filter ]['exclude_widgets'][$widget] ) ){
+														$match_any = true;
+														break;
+													}
+												}
+											}
+										}elseif( isset( $wp_registered_sidebars[$index]['widgets_settings'] ) && !isset( $wp_registered_sidebars[$index]['widgets_settings'][$filter[0]] ) ){
+											$match_any = true;
+										}
+										
+										if( !$match_any && isset( $strict_filtered_widgets[ $widget ] ) ){
+											unset( $strict_filtered_widgets[ $widget ] );
+										}
+									break;
+								case 'all':
+										$dont_match_one = false;
+										
+										if( isset( $wp_registered_sidebars[$index]['widgets_settings'] ) &&  isset( $wp_registered_sidebars[$index]['widgets_settings'][$filter[0]] ) ){
+										
+											if( isset( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ]['_otw_wc'] ) && isset( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ]['_otw_wc'][ $widget ] ) ){
+												
+												if( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ]['_otw_wc'][ $widget ] == 'invis' ){
+													$dont_match_one = true;
+												}
+											}else{
+												foreach( $filter[1] as $v_filter ){
+													
+													if( isset( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ][ $v_filter ] ) && isset( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ][ $v_filter ]['exclude_widgets'] ) && isset( $wp_registered_sidebars[$index]['widgets_settings'][ $filter[0] ][ $v_filter ]['exclude_widgets'][$widget] ) ){
+														$dont_match_one = true;
+													}
+												}
+											}
+										}
+										
+										if( $dont_match_one && isset( $strict_filtered_widgets[ $widget ] ) ){
+											unset( $strict_filtered_widgets[ $widget ] );
+										}
+									break;
+							}
+						}
+					}
+				}
+			}
+		}
+		return $strict_filtered_widgets;
+	}
+}
+/**
+ * check if given sidebar match all strict filters
+ * @param index sidebar index
+ * @return boolean
+ */
+if( !function_exists( 'otw_filter_strict_sidebar_index' ) ){
+	function otw_filter_strict_sidebar_index( $index ){
+		
+		global $wp_registered_sidebars;
+		
+		$result = true;
+		
+		$filters = otw_get_strict_filters();
+		
+		if( is_array( $filters ) && count( $filters ) ){
+			
+			if( $result ){
+				
+				foreach( $filters as $filter ){
+					
+					switch( $filter[2] ){
+					
+						case 'any':
+								$match_any = false;
+								if( isset( $wp_registered_sidebars[ $index ]['validfor'][ $filter[0] ] ) && is_array( $wp_registered_sidebars[ $index ]['validfor'][ $filter[0] ] ) && count( $wp_registered_sidebars[ $index ]['validfor'][ $filter[0] ] ) ){
+									
+									if( isset( $wp_registered_sidebars[ $index ]['validfor'][ $filter[0] ]['all'] ) ){
+										$match_any = true;
+									}else{
+										foreach( $filter[1] as $s_filter ){
+											
+											if( array_key_exists( $s_filter, $wp_registered_sidebars[ $index ]['validfor'][ $filter[0] ] ) ){
+											
+												$match_any = true;
+												break;
+											}
+										}
+									}
+								}
+								if( !$match_any ){
+									$result = false;
+								}
+							break;
+						case 'all':
+								$dont_match_one = false;
+								
+								foreach( $filter[1] as $s_filter ){
+								
+									if( isset( $wp_registered_sidebars[ $index ]['validfor'][ $filter[0] ] ) && is_array( $wp_registered_sidebars[ $index ]['validfor'][ $filter[0] ] ) && count( $wp_registered_sidebars[ $index ]['validfor'][ $filter[0] ] ) ){
+										
+										if( !isset( $wp_registered_sidebars[ $index ]['validfor'][ $filter[0] ]['all'] ) ){
+											
+											if( !array_key_exists( $s_filter, $wp_registered_sidebars[ $index ]['validfor'][ $filter[0] ] ) ){
+												$dont_match_one = true;
+												break;
+											}
+										}
+									}else{
+										$dont_match_one = true;
+										break;
+									}
+								}
+								if( $dont_match_one ){
+									$result = false;
+								}
+							break;
+					}
+				}
+			}
+		}
+		
+		return $result;
+		
 	}
 }
 ?>
