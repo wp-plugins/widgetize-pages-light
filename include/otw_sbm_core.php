@@ -250,10 +250,6 @@ if( !function_exists( 'otw_call_sidebar' ) ){
 				
 				$widget_alignement = 'vertical';
 				
-				if( isset( $sidebar['widget_alignment'] ) ){
-					$widget_alignement = $sidebar['widget_alignment'];
-				}
-				
 				switch( $widget_alignement ){
 					
 					case 'horizontal':
@@ -838,7 +834,9 @@ if( !function_exists( 'otw_get_strict_filters' ) ){
 		$filters = array();
 		
 		//apply user roles
-		get_currentuserinfo();
+		if ( function_exists('get_currentuserinfo') ){
+			get_currentuserinfo();
+		}
 		
 		if( isset( $current_user->ID ) && intval( $current_user->ID ) && isset( $current_user->roles ) && is_array( $current_user->roles ) && count( $current_user->roles ) ){
 			

@@ -36,8 +36,8 @@ if( is_array( $otw_sidebar_list ) && count( $otw_sidebar_list ) ){
 }
 
 ?>
-<div class="updated"><p>Check out the <a href="http://otwthemes.com/online-documentation-widgetize-pages-light/?utm_source=wp.org&utm_medium=admin&utm_content=docs&utm_campaign=wpl">Online documentation</a> for this plugin<br /><br /> Upgrade to the full version of <a href="http://otwthemes.com/product/sidebar-widget-manager-for-wordpress/?utm_source=wp.org&utm_medium=admin&utm_content=upgrade&utm_campaign=wpl">Sidebar and Widget Manager</a> | <a href="http://otwthemes.com/demos/1ts/?item=Sidebar%20Widget%20Manager&utm_source=wp.org&utm_medium=admin&utm_content=upgrade&utm_campaign=wpl">Demo site</a> | <a href="http://www.youtube.com/watch?v=WT9UK1eX4C8">Video overview</a><br /><br />
-Sidebar and Widget Manager has easy column <a href="http://otwthemes.com/widgetizing-pages-in-wordpress-has-never-been-easier/?utm_source=wp.org&utm_medium=admin&utm_content=upgrade&utm_campaign=wpl">interface for Widgetizing Pages</a><br /><br />
+<div class="updated"><p>Check out the <a href="http://otwthemes.com/online-documentation-widgetize-pages-light/?utm_source=wp.org&utm_medium=admin&utm_content=docs&utm_campaign=wpl">Online documentation</a> for this plugin<br /><br /> Upgrade to the full version of <a href="http://otwthemes.com/product/sidebar-widget-manager-for-wordpress/?utm_source=wp.org&utm_medium=admin&utm_content=upgrade&utm_campaign=wpl">Sidebar and Widget Manager</a> | <a href="http://otwthemes.com/demos/1ts/?item=Sidebar%20Widget%20Manager&utm_source=wp.org&utm_medium=admin&utm_content=upgrade&utm_campaign=wpl">Demo site</a><br /><br />
+<a href="http://otwthemes.com/widgetizing-pages-in-wordpress-can-be-even-easier-and-faster?utm_source=wp.org&utm_medium=admin&utm_content=upgrade&utm_campaign=wpl">Create responsive layouts in minutes, drag & drop interface, feature rich.</a><br /><br />
 Follow on <a href="http://twitter.com/OTWthemes">Twitter</a> | <a href="http://www.facebook.com/pages/OTWthemes/250294028325665">Facebook</a> | <a href="http://www.youtube.com/OTWthemes">YouTube</a> | <a href="https://plus.google.com/117222060323479158835/about">Google+</a></p></div>
 <?php if ( $message ) : ?>
 <div id="message" class="updated"><p><?php echo $message; ?></p></div>
@@ -106,7 +106,7 @@ Follow on <a href="http://twitter.com/OTWthemes">Twitter</a> | <a href="http://w
 			<?php }?>
 		</tbody>
 	</table>
-	<div class="updated einfo"><p><?php _e('Use the shordcode feature to add a sidebar in your pages/posts/template files. Shortcodes can be added in: <br />- page/post content - select the sidebar you want to insert from the Insert Sidebar ShortCode button in your page/post editor. <br />- page/post content - copy the shortcode and paste it in the editor of a page/post. <br />- any page template using the do_shortcode WP function.<br /><br /> Use the Sidebar ID to build your shortcodes. <br />Example: [otw_is sidebar=otw-sidebar-1]' );?></p></div>
+	<div class="updated einfo"><p><?php _e( 'Create as many sidebars as you need. Then add them in your pages/posts/template files. Here is how you can add sidebars:<br /><br />&nbsp;- page/post bellow content using the Grid Manager metabox when you edit your page<br />&nbsp;- page/post content - select the sidebar you want to insert from the Insert Sidebar ShortCode button in your page/post editor.<br />&nbsp;- page/post content - copy the shortcode and paste it in the editor of a page/post.<br />&nbsp;- any page template using the do_shortcode WP function.<br /><br />Use the Sidebar ID to build your shortcodes.<br />Example: [otw_is sidebar=otw-sidebar-1] ' );?></p></div>
 	<?php }else{ ?>
 		<p><?php _e('No custom sidebars found.')?></p>
 	<?php } ?>

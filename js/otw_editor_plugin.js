@@ -7,7 +7,42 @@
 			
 			ed.addCommand('otwShortCode', function() {
 			
-				tb_show( jQuery('#content_otwsbm').attr( 'title' ), 'admin-ajax.php?action=otw_wpl_editor_dialog' );
+				
+				jQuery.get( 'admin-ajax.php?action=otw_shortcode_editor_dialog&shortcode=sidebar' ,function(b){
+								
+					jQuery( "#otw-dialog").remove();
+					var cont = jQuery( '<div id="otw-dialog">' + b + '</div>' );
+					jQuery( "body").append( cont );
+					jQuery( "#otw-dialog").hide();
+					tb_position = function(){
+						var isIE6 = typeof document.body.style.maxHeight === "undefined";
+						var b=jQuery(window).height();
+						jQuery("#TB_window").css({marginLeft: '-' + parseInt((TB_WIDTH / 2),10) + 'px', width: TB_WIDTH + 'px'});
+						if ( ! isIE6 ) { // take away IE6
+							jQuery("#TB_window").css({marginTop: '-' + parseInt((TB_HEIGHT / 2),10) + 'px'});
+						}
+						jQuery( '#TB_ajaxContent' ).css( 'width', '950px' );
+						jQuery( '#TB_ajaxContent' ).css( 'padding', '0' );
+						
+					}
+					
+					var f=jQuery(window).width();
+					b=jQuery(window).height();
+					f=1000<f?1000:f;
+					f-=80;
+					/*b-=84;*/
+					b=760<b?760:b;
+					b-=110; 
+					otw_form_init_fields();
+					
+					otw_shortcode_editor = new otw_shortcode_editor_object( 'sidebar' );
+					otw_shortcode_editor.init_fields();
+					otw_shortcode_editor.shortcode_created = function( shortcode_object ){
+						insertShortCode( shortcode_object.sidebar_id );
+					}
+					tb_show( jQuery('#content_otwsbm').attr( 'title' ), "#TB_inline?width="+f+"&height="+b+"&inlineId=otw-dialog" );
+					
+				} );
 				
 			});
 			
@@ -16,7 +51,7 @@
 				
 				title : 'Insert Sidebar ShortCode',
 				cmd : 'otwShortCode',
-				image : url + '/../images/application_side_boxes.png'
+				image : url + '/../images/otw-sbm-icon.png'
 			});
 			
 			ed.onNodeChange.add(function(ed, cm, n) {
@@ -28,11 +63,11 @@
 		},
 		getInfo : function() {
 			return { 
-				longname : 'Sidebar & Widget Manager plugin',
+				longname : 'Widgetize pages Light plugin',
 				author : 'OTWthemes.com',
 				authorurl : 'http://themeforest.net/user/OTWthemes',
 				infourl : 'http://OTWthemes.com',
-				version : "1.0"
+				version : "3.0"
 			}
 		}
 	});
@@ -42,10 +77,9 @@
 	
 })();
 
-function insertShortCode(){
-	var select_box = jQuery( '#o_sidebar' )
+function insertShortCode( sidebar_id ){
 	
-	tinyMCE.activeEditor.execCommand( "mceInsertContent", false, '[otw_is sidebar=' + select_box.val() + ']' );
+	tinyMCE.activeEditor.execCommand( "mceInsertContent", false, '[otw_is sidebar=' + sidebar_id + ']' );
 	tb_remove();
 }
 

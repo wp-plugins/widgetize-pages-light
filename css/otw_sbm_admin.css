@@ -27,28 +27,33 @@ div.sitems p{
 }
 div.sitems p.all{
 	border-bottom: 1px solid #d4d4d4;
+	border-top:1px solid #D4D4D4;
 }
-div.sitems p.sitem_selected{
-	background: url( ../images/selected.gif ) no-repeat right center;
+div.sitems p.sitem_selected a{
+	background: url( ../images/swm-selected.png ) no-repeat 10px center;
+	font-weight: bold;
 }
-div.sitems p.sitem_notselected{
-	background: url( ../images/not_selected.gif ) no-repeat right center;
+div.sitems p.sitem_notselected a{
+	background: url( ../images/swm-notselected.png ) no-repeat 10px center;
 }
-div.sitems p.sitem_loading{
-	background: url( ../images/loading.gif ) no-repeat right center;
+div.sitems p.sitem_loading a{
+	background: url( ../images/loading.gif ) no-repeat 10px center;
 }
 div.sitems p a{
 	display: block;
-	padding-left: 25px;
+	padding: 5px 0 5px 30px;
 	text-decoration: none;
 }
 div.sitems p a:hover{
-	background: url( '../images/current.gif' ) no-repeat left center;
 	text-decoration: underline;
+	background-color: #EEEEEE;
 }
 div.sitems p input{
 	float: left;
 	visibility: hidden;
+}
+div.lf_items p a{
+	color: #21759B !important;
 }
 div.d_info p{
 	margin: 0px;

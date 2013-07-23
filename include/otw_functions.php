@@ -4,7 +4,7 @@
   */
 function otw_wpl_plugin_init(){
 	
-	global $wp_registered_sidebars, $otw_replaced_sidebars, $wp_wpl_int_items, $otw_wpl_plugin_url;
+	global $wp_registered_sidebars, $otw_replaced_sidebars, $wp_wpl_int_items, $otw_wpl_plugin_url, $otw_wpl_grid_manager_component, $otw_wpl_shortcode_component, $otw_wpl_form_component, $otw_wpl_grid_manager_object;
 	
 	if( is_admin() ){
 		if( function_exists( 'otwrem_dynamic_sidebar' ) ){
@@ -81,6 +81,26 @@ function otw_wpl_plugin_init(){
 			}
 		}
 	}
+	
+	//otw grid manager component
+	$otw_wpl_grid_manager_component = otw_load_component( 'otw_grid_manager' );
+	$otw_wpl_grid_manager_object = otw_get_component( $otw_wpl_grid_manager_component );
+	$otw_wpl_grid_manager_object->active_for_posts = true;
+	include_once( plugin_dir_path( __FILE__ ).'otw_labels/otw_sbm_grid_manager_object.labels.php' );
+	$otw_wpl_grid_manager_object->init();
+	
+	//shortcode component
+	$otw_wpl_shortcode_component = otw_load_component( 'otw_shortcode' );
+	$otw_wpl_shortcode_object = otw_get_component( $otw_wpl_shortcode_component );
+	$otw_wpl_shortcode_object->shortcodes['sidebar'] = array( 'title' => __('OTW Sidebar', 'otw_sbm'),'enabled' => true,'children' => false,'order' => 100000,'path' => dirname( __FILE__ ).'/otw_components/otw_shortcode/', 'url' => $otw_wpl_plugin_url.'/include/otw_components/otw_shortcode/' );
+	include_once( plugin_dir_path( __FILE__ ).'otw_labels/otw_sbm_shortcode_object.labels.php' );
+	$otw_wpl_shortcode_object->init();
+	
+	//form component
+	$otw_wpl_form_component = otw_load_component( 'otw_form' );
+	$otw_wpl_form_object = otw_get_component( $otw_wpl_form_component );
+	include_once( plugin_dir_path( __FILE__ ).'otw_labels/otw_sbm_form_object.labels.php' );
+	$otw_wpl_form_object->init();
 	
 	if( is_admin() ){
 		require_once( plugin_dir_path( __FILE__ ).'/otw_process_actions.php' );
