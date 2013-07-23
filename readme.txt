@@ -23,7 +23,7 @@ Use the new OTW Grid Manager Light component to build your custom layout in no t
 You can use as many widget areas (sidebars) in as many pages/posts as you need. Creating sidebars (widget areas) is unlimited. 
 
 The plugin has very easy and intuitive administration area designed to fit into the core WordPress design. Check out the screenshots section or just download it and try it out.
-
+ 
 
 Upgrade to the full version of [Sidebar and Widget Manager](http://otwthemes.com/product/sidebar-widget-manager-for-wordpress/?utm_source=wp.org&utm_medium=page&utm_content=upgrade&utm_campaign=wpl) |
 [Demo site](http://otwthemes.com/demos/1ts/?item=Sidebar%20Widget%20Manager&utm_source=wp.org&utm_medium=page&utm_content=upgrade&utm_campaign=wpl) | 
