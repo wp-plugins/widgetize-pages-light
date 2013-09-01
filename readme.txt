@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: widgetize page, widgets in page, custom sidebar, widgets, sidebar, widget area, widgetized pages, custom layout, widgets on pages
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 1.7
+Stable tag: 1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,10 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 7. Shortcode 
 
 == Changelog ==
+
+= 1.8 =
+
+* Updated: minor grid css changes
 
 = 1.7 =
 
