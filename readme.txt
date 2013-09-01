@@ -67,7 +67,7 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 
 = 1.8 =
 
-* Updated: minor grid css changes
+* Updated: minor grid css changes.
 
 = 1.7 =
 
