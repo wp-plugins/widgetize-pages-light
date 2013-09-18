@@ -69,7 +69,7 @@ Updating to versiion 1.5  or higher requires deactivation of the old version fir
 
 = 1.9 =
 
-* Updated: replace depricated functions
+* Updated: replace depricated functions. 
 
 = 1.8 =
 
