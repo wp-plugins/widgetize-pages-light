@@ -99,7 +99,7 @@ class OTW_Shortcodes{
 	/**
 	 * Build shortcode
 	 */
-	public function build_shortcode_code(){
+	public function build_shortcode_code( $attributes ){
 		
 		echo $this->get_label( 'Invalid shortcode' );
 		
@@ -109,7 +109,7 @@ class OTW_Shortcodes{
 	/**
 	 * Display shortcode
 	 */
-	public function display_shortcode(){
+	public function display_shortcode( $attributes, $content ){
 		return $this->get_label( 'Invalid shortcode' );
 	}
 	
