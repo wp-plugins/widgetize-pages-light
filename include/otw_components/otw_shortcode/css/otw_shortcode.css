@@ -1,5 +1,5 @@
 
-.button {
+.otw-button {
   background-color: #00aeef;
   border: 1px solid rgba(128, 128, 128, 0.4);
   color: white !important;
@@ -29,7 +29,7 @@
   /* Radii */
   /* Icon buttons */
 }
-.button:hover {
+.otw-button:hover {
   color: white;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.1)), color-stop(100%, rgba(0, 0, 0, 0.05)));
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.05));
@@ -39,7 +39,7 @@
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(128, 128, 128, 0.6);
 }
-.button:active {
+.otw-button:active {
   color: #ebebeb;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0.1)), color-stop(100%, rgba(0, 0, 0, 0.4)));
   background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
@@ -52,19 +52,19 @@
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(128, 128, 128, 0.75);
 }
-.ie8 .button {
+.ie8 .otw-button {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33ffffff', endColorstr='#40000000',GradientType=0 );
 }
-.ie8 .button:hover {
+.ie8 .otw-button:hover {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1affffff', endColorstr='#0d000000',GradientType=0 );
 }
-.ie8 .button:active {
+.ie8 .otw-button:active {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1affffff', endColorstr='#66000000',GradientType=0 );
 }
-.ie9 .button {
+.ie9 .otw-button {
   position: relative;
 }
-.ie9 .button:after {
+.ie9 .otw-button:after {
   display: block;
   content: '';
   position: absolute;
@@ -75,69 +75,69 @@
   opacity: 0.12;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9ImczOTEiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiMxMTExMTEiIG9mZnNldD0iMSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2czOTEpIiAvPgo8L3N2Zz4=);
 }
-.ie9 .button:hover:after {
+.ie9 .otw-button:hover:after {
   opacity: 0.05;
 }
-.ie9 .button:active:after {
+.ie9 .otw-button:active:after {
   opacity: 0.2;
 }
-.button.large {
+.otw-button.large {
   font-size: 18px;
 }
-.button.large img {
+.otw-button.large img {
   max-height: 19px;
 }
-.button.medium {
+.otw-button.medium {
   font-size: 14px;
 }
-.button.medium img {
+.otw-button.medium img {
   max-height: 15px;
 }
-.button.small {
+.otw-button.small {
   font-size: 12px;
   padding: 5px 10px 6px;
 }
-.button.small img {
+.otw-button.small img {
   max-height: 13px;
 }
-.button.tiny {
+.otw-button.tiny {
   font-size: 11px;
   padding: 4px 8px 5px;
 }
-.button.tiny img {
+.otw-button.tiny img {
   max-height: 12px;
 }
-.button.expand {
+.otw-button.expand {
   width: 100%;
   text-align: center;
 }
-.button.radius, .button.radius:after {
+.otw-button.radius, .otw-button.radius:after {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
 }
-.button.round, .button.round:after {
+.otw-button.round, .otw-button.round:after {
   -webkit-border-radius: 1000px;
   -moz-border-radius: 1000px;
   -ms-border-radius: 1000px;
   -o-border-radius: 1000px;
   border-radius: 1000px;
 }
-.button i {
+.otw-button i {
   display: block;
   float: left;
   margin: 1px 6px 0 0;
 }
-.button img {
+.otw-button img {
   margin-right: 8px;
 }
-.button.right-icon i {
+.otw-button.right-icon i {
   float: right;
   margin: 1px 0 0 6px;
 }
-.button.right-icon img {
+.otw-button.right-icon img {
   float: right;
   margin: 0 0 0 8px;
 }

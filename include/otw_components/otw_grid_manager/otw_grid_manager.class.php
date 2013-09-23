@@ -260,9 +260,14 @@ class OTW_Grid_Manager extends OTW_Component{
 			
 			$rows = json_decode( $meta_content );
 			
+			$is_content_sidebars_content = otw_is_content_sidebars_content();
+			
 			if( $rSize = count( $rows ) ){
 				
-				//$meta_code .= " <div class=\"otw-row\">";
+				if( !$is_content_sidebars_content ){
+					$meta_code .= " <div class=\"otw-row\">";
+				}
+				
 				foreach( $rows as $row ){
 					
 					if( $cSize = count( $row->columns )){
@@ -294,7 +299,9 @@ class OTW_Grid_Manager extends OTW_Component{
 				
 					}
 				}
-				//$meta_code .= "</div>";
+				if( !$is_content_sidebars_content ){
+					$meta_code .= "</div>";
+				}
 			}
 		}
 		

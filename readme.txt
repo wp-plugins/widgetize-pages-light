@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: widgetize page, widgets in page, custom sidebar, widgets, sidebar, widget area, widgetized pages, custom layout, widgets on pages
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 1.9
+Stable tag: 1.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,9 +67,13 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 
 Updating to versiion 1.5  or higher requires deactivation of the old version first! More info [here](http://otwthemes.com/updating-widgetize-pages-light-to-1-5-version-sidebar-manager-light-to-1-3-widget-manager-light-to-1-3/) 
 
+= 1.10 =
+
+* Updated: Grid Manager – no content wrapping where not needed
+
 = 1.9 =
 
-* Updated: replace depricated functions. 
+* Updated: replace depricated functions
 
 = 1.8 =
 

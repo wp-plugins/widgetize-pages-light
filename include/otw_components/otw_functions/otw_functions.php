@@ -180,18 +180,6 @@ if (!function_exists( "otw_order_meta_boxes" )){
  */
 if (!function_exists( "otw_pre_content_wrapper" )){
 	function otw_pre_content_wrapper( $the_content ){
-		
-		if( !otw_is_grid_manager_content() && !otw_is_content_sidebars_content() ){
-			
-		}elseif( !otw_is_grid_manager_content() && otw_is_content_sidebars_content() ){
-			
-		}
-		elseif( otw_is_grid_manager_content() && !otw_is_content_sidebars_content() ){
-			$the_content = '<div class="otw-row"><div class="otw-twentyfour otw-columns">'.$the_content.'</div></div>';
-		}
-		elseif( otw_is_grid_manager_content() && otw_is_content_sidebars_content() ){
-			$the_content = '<div class="otw-row"><div class="otw-twentyfour otw-columns">'.$the_content.'</div></div>';
-		}
 		return $the_content;
 	}
 }
@@ -199,10 +187,10 @@ if (!function_exists( "otw_pre_content_wrapper" )){
  * Wrap the full content with row
  * @param string
  */
-if (!function_exists( "otw_post_content_wrapper" )){
+ if (!function_exists( "otw_post_content_wrapper" )){
 	function otw_post_content_wrapper( $the_content ){
 		
-		if( otw_is_grid_manager_content() || otw_is_content_sidebars_content() ){
+		if( otw_is_content_sidebars_content() ){
 			$the_content = '<div class="otw-row"><div class="otw-row"><div class="otw-twentyfour otw-columns">'.$the_content.'</div></div></div>';
 		}
 		return $the_content;
@@ -262,7 +250,7 @@ if (!function_exists( "otw_is_content_sidebars_content" )){
 			}
 		
 		}
-		return true;
+		return false;
 	}
 }
 ?>
