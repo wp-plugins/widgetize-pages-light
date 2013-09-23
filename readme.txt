@@ -69,7 +69,7 @@ Updating to versiion 1.5  or higher requires deactivation of the old version fir
 
 = 1.10 =
 
-* Updated: Grid Manager – no content wrapping where not needed
+* Updated: Grid Manager – no content wrapping where not needed.
 
 = 1.9 =
 
