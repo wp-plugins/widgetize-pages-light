@@ -67,7 +67,7 @@ Please refer to [online documentation page](http://otwthemes.com/online-document
 
 Updating to versiion 1.5  or higher requires deactivation of the old version first! More info [here](http://otwthemes.com/updating-widgetize-pages-light-to-1-5-version-sidebar-manager-light-to-1-3-widget-manager-light-to-1-3/) 
 
-= 1.10 =
+= 1.10. =
 
 * Updated: Grid Manager, no content wrapping where not needed.
 
