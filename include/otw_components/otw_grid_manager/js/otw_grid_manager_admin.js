@@ -86,11 +86,13 @@ otw_grid_manager_object.prototype.load_from_json = function( json_code ){
 			
 			var column_id = 0;
 			
-			for( cC = 0; cC < json_object[ json_row ].columns.length; cC++ ){
-				column_id = this.add_column( row_id, json_object[ json_row ].columns[ cC ].rows, json_object[ json_row ].columns[ cC ].from_rows, json_object[ json_row ].columns[ cC ].mobile_rows, json_object[ json_row ].columns[ cC ].mobile_from_rows );
-				
-				for( cS = 0; cS < json_object[ json_row ].columns[ cC ].shortcodes.length; cS++){
-					this.rows[ row_id ].columns[ column_id ].add_shortcode( json_object[ json_row ].columns[ cC ].shortcodes[ cS ] );
+			if( typeof( json_object[ json_row ].columns ) == 'object' ){
+				for( cC = 0; cC < json_object[ json_row ].columns.length; cC++ ){
+					column_id = this.add_column( row_id, json_object[ json_row ].columns[ cC ].rows, json_object[ json_row ].columns[ cC ].from_rows, json_object[ json_row ].columns[ cC ].mobile_rows, json_object[ json_row ].columns[ cC ].mobile_from_rows );
+					
+					for( cS = 0; cS < json_object[ json_row ].columns[ cC ].shortcodes.length; cS++){
+						this.rows[ row_id ].columns[ column_id ].add_shortcode( json_object[ json_row ].columns[ cC ].shortcodes[ cS ] );
+					};
 				};
 			};
 		};
@@ -1107,10 +1109,12 @@ otw_grid_manager_shortcode.prototype.html_code = function( object_name, row_id, 
 				html = html + '<div class="otw-shortcode-controls">';
 				
 					//show title
-					if( typeof( this.iname ) != 'undefined' ){
-						html = html + '<div class="otw-shortcode-control-move"><span>' + otw_shortcode_component.shortcodes[ this.shortcode_type ].title  + ' - ' + this.iname + '</span>';
-					}else{
-						html = html + '<div class="otw-shortcode-control-move"><span>' + otw_shortcode_component.shortcodes[ this.shortcode_type ].title + '</span>';
+					if( typeof( otw_shortcode_component.shortcodes[ this.shortcode_type ] ) != 'undefined' ){
+						if( typeof( this.iname ) != 'undefined' ){
+							html = html + '<div class="otw-shortcode-control-move"><span>' + otw_shortcode_component.shortcodes[ this.shortcode_type ].title  + ' - ' + this.iname + '</span>';
+						}else{
+							html = html + '<div class="otw-shortcode-control-move"><span>' + otw_shortcode_component.shortcodes[ this.shortcode_type ].title + '</span>';
+						}
 					}
 					html = html + '<div class=\"otw-column-controls-rightalign\">';
 					html = html + '<a href="javascript:;" class=\"otw-shortcode-control-delete\" title="' + parent.get_label( 'Delete' ) + '"></a></div>';
