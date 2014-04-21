@@ -52,6 +52,12 @@ class OTW_Grid_Manager extends OTW_Component{
 	
 	public $active_for_posts = false;
 	
+	/**
+	 * Meta info text
+	 */
+	public $meta_info;
+	
+	
 	public function __construct(){
 		
 		if( is_admin() ){
@@ -177,6 +183,11 @@ class OTW_Grid_Manager extends OTW_Component{
 		$content = "";
 		
 		$content .= "<div id=\"".$this->meta_name."_container\" class=\"otw_grid_manager_container\">";
+		
+		if( isset( $this->meta_info ) && strlen( $this->meta_info ) ){
+			$content .= $this->meta_info;
+		}
+		
 		$content .= "\n<p class=\"otw_grid_manager_info\">";
 		$content .= "<a href=\"javascript:;\" id=\"".$this->meta_name."_info_button\" class=\"otw_grid_manager_info_button\">".$this->get_label('Info')."</a>";
 		$content .= "\n</p>"; 

@@ -83,9 +83,13 @@ function otw_wpl_plugin_init(){
 	}
 	
 	//otw grid manager component
+	include_once( plugin_dir_path( __FILE__ ).'otw_wpl_grid_meta_info.php' );
+		
 	$otw_wpl_grid_manager_component = otw_load_component( 'otw_grid_manager' );
 	$otw_wpl_grid_manager_object = otw_get_component( $otw_wpl_grid_manager_component );
 	$otw_wpl_grid_manager_object->active_for_posts = true;
+	$otw_wpl_grid_manager_object->meta_info = $otw_wpl_grid_meta_info;
+	
 	include_once( plugin_dir_path( __FILE__ ).'otw_labels/otw_sbm_grid_manager_object.labels.php' );
 	$otw_wpl_grid_manager_object->init();
 	
