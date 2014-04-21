@@ -3,7 +3,7 @@ Contributors: OTWthemes
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQH6CMTR42KS2
 Tags: widgetize page, widgets in page, custom sidebar, widgets, sidebar, widget area, widgetized pages, custom layout, widgets on pages
 Requires at least: 3.0
-Tested up to: 3.8
+Tested up to: 3.9
 Stable tag: 1.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
