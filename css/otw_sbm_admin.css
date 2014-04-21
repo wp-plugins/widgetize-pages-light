@@ -1,0 +1,117 @@
+div.postbox div.otw_closed{
+	display: none;
+}
+div.otw_dialog_content div.postbox{
+	clear: both;
+	float: left;
+	width: 100%;
+}
+h3.sitem_header{
+	cursor: default !important;
+}
+div.sitem_toggle{
+	cursor: pointer !important;
+}
+div.sitems{
+	margin: 0 !important;
+	clear: both;
+}
+div.sitems p{
+	height: 24px;
+	line-height: 20px;
+	cursor: pointer;
+	margin: 2px 0 !important;
+	padding: 0 !important;
+	margin: 0;
+	clear: both;
+}
+div.sitems p.all{
+	border-bottom: 1px solid #d4d4d4;
+	border-top:1px solid #D4D4D4;
+}
+div.sitems p.sitem_selected a{
+	background: url( ../images/swm-selected.png ) no-repeat 10px center;
+	font-weight: bold;
+}
+div.sitems p.sitem_notselected a{
+	background: url( ../images/swm-notselected.png ) no-repeat 10px center;
+}
+div.sitems p.sitem_loading a{
+	background: url( ../images/loading.gif ) no-repeat 10px center;
+}
+div.sitems p a{
+	display: block;
+	padding: 5px 0 5px 30px;
+	text-decoration: none;
+}
+div.sitems p a:hover{
+	text-decoration: underline;
+	background-color: #EEEEEE;
+}
+div.sitems p input{
+	float: left;
+	visibility: hidden;
+}
+div.lf_items p a{
+	color: #21759B !important;
+}
+div.d_info p{
+	margin: 0px;
+	padding: 0px;
+}
+div.d_info p img{
+	vertical-align: middle;
+	margin-right: 5px;
+}
+td.sidebar_active{ text-transform: uppercase; color: #008000; font-weight: bold; }
+td.sidebar_inactive{ text-transform: uppercase; color: #D00000; font-weight: bold; }
+div.all_vis_lnks{
+	float: left;
+	width: 100%;
+	border-bottom: 1px solid #cccccc;
+}
+div.all_vis_lnks a{
+	line-height: 30px;
+	display: block;
+	float: left;
+	text-decoration: none;
+}
+div.all_vis_lnks a.all_vis{
+	background: url( '../images/selected.gif' ) no-repeat left center;
+	padding: 0 10px 0 30px;
+	border-right: 1px solid #cccccc;
+	margin-left: 10px;
+}
+div.all_vis_lnks a.all_invis{
+	background: url( '../images/not_selected.gif' ) no-repeat left center;
+	padding: 0 10px 0 30px;
+	margin-left: 10px;
+	border-right: 1px solid #cccccc;
+}
+div.all_vis_lnks a.all_loading{
+	background-image: url( '../images/loading.gif' );
+}
+div.all_vis_lnks a.all_selected{
+	background-image: url( '../images/current.gif' );
+}
+div.all_vis_lnks input.q_filter{
+	float: right;
+	width: 300px;
+	margin: 3px 2px 0 0;
+	color: #cccccc;
+}
+div.mto{
+	height: 310px;
+	overflow: hidden;
+}
+div.sitems div.more_items{
+	border-bottom: 1px solid #cccccc;
+	clear: both;
+	color: #cdcdcd;
+	padding: 2px;
+}
+
+div.einfo{ 
+	background-color: #ececec;
+	border-color: #DFDFDF;
+}
