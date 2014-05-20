@@ -40,7 +40,7 @@
 					otw_shortcode_editor.shortcode_created = function( shortcode_object ){
 						insertShortCode( shortcode_object.sidebar_id );
 					}
-					tb_show( jQuery('#content_otwsbm').attr( 'title' ), "#TB_inline?width="+f+"&height="+b+"&inlineId=otw-dialog" );
+					tb_show( 'Insert sidebar', "#TB_inline?width="+f+"&height="+b+"&inlineId=otw-dialog" );
 					
 				} );
 				

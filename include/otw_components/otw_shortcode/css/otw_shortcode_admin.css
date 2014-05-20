@@ -96,3 +96,6 @@
 	border: none;
 	width: 10px;
 }
+.otw-clear{
+	clear: both;
+}
