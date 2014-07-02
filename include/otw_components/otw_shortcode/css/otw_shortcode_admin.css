@@ -99,3 +99,6 @@
 .otw-clear{
 	clear: both;
 }
+#wp-link-wrap{
+	z-index: 5000117 !important;
+}
