@@ -3,7 +3,7 @@ Contributors: OTWthemes
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CQH6CMTR42KS2
 Tags: widgetize page, widgets in page, custom sidebar, widgets, sidebar, widget area, widgetized pages, custom layout, widgets on pages
 Requires at least: 3.0
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: 1.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ You can now easily widgetize a page and drop widgets in page or post content are
 
 Use the new OTW Grid Manager Light component to build your custom layout in no time. It is all done in a nice and easy interface. Add some rows and columns in the rows. Insert the sidebars in the columns.
 
-You can use as many widget areas (sidebars) in as many pages/posts as you need. Creating sidebars (widget areas) is unlimited. 
+You can use as many widget areas (sidebars) in as many pages/posts as you need. Creating sidebars(widget areas) is unlimited. 
 
 The plugin has very easy and intuitive administration area designed to fit into the core WordPress design. Check out the screenshots section or just download it and try it out.
  
@@ -30,8 +30,8 @@ Upgrade to the full version of [Sidebar and Widget Manager](http://otwthemes.com
 How Widgetize Pages Light works:
 
 * Create a custom sidebar(widget area)
-* Insert the sidebar shortcode in the page editor wherever in the content you need it - either use the Insert Sidebar Shortcode button in the editor or copy/paste the sidebar shortcode
-* Go to your widgets section (Appearance -> Widgets) and drop some widgets in your new sidebar
+* Insert the sidebar shortcode in the page editor wherever in the content you need it - either use the Insert Sidebar Shortcode button in the editor or copy/paste the sidebar shortcode.
+* Go to your widgets section (Appearance -> Widgets) and drop some widgets in your new sidebar.
 
 Advanced users:
 
