@@ -96,7 +96,7 @@ function otw_wpl_plugin_init(){
 	//shortcode component
 	$otw_wpl_shortcode_component = otw_load_component( 'otw_shortcode' );
 	$otw_wpl_shortcode_object = otw_get_component( $otw_wpl_shortcode_component );
-	$otw_wpl_shortcode_object->shortcodes['sidebar'] = array( 'title' => __('OTW Sidebar', 'otw_sbm'),'enabled' => true,'children' => false,'order' => 100000,'path' => dirname( __FILE__ ).'/otw_components/otw_shortcode/', 'url' => $otw_wpl_plugin_url.'/include/otw_components/otw_shortcode/' );
+	$otw_wpl_shortcode_object->shortcodes['sidebar'] = array( 'title' => __('OTW Sidebar', 'otw_sbm'),'enabled' => true,'children' => false,'order' => 100000,'path' => dirname( __FILE__ ).'/otw_components/otw_shortcode/', 'url' => $otw_wpl_plugin_url.'include/otw_components/otw_shortcode/' );
 	include_once( plugin_dir_path( __FILE__ ).'otw_labels/otw_sbm_shortcode_object.labels.php' );
 	$otw_wpl_shortcode_object->init();
 	
@@ -122,7 +122,7 @@ function otw_wpl_plugin_init(){
  */
 function add_otw_wpl_tinymce_plugin($plugin_array){
 	global $otw_wpl_plugin_url;
-	$plugin_array['otwsbm'] = $otw_wpl_plugin_url.'/js/otw_editor_plugin.js';
+	$plugin_array['otwsbm'] = $otw_wpl_plugin_url.'js/otw_editor_plugin.js';
 	return $plugin_array;
 }
 /**
