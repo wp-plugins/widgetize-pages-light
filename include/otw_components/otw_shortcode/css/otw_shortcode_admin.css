@@ -1,0 +1,104 @@
+#otw_shortcode_dropdown_menu{
+	background-color: #FFFFFF;
+	width: 150px;
+	padding: 5px 0 0 0;
+	display: none;
+	position: absolute;
+	z-index: 999;
+	border: 1px solid #d4d4d4;
+	box-shadow: 2px 2px 3px #EBEBEB;
+	text-align: left;
+}
+#otw_shortcode_dropdown_menu a{
+	display: block;
+	clear: both;
+	cursor: pointer;
+	color: #333;
+	padding: 5px 10px;
+	width: 100%;
+}
+#otw_shortcode_dropdown_menu a:hover{
+	color: #0088D3;
+}
+#otw_shortcode_dropdown_menu ul{
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+#otw_shortcode_dropdown_menu ul li{
+	padding: 0;
+	margin: 0;
+	}
+#otw_shortcode_dropdown_menu ul li.otw-dropdown-line{
+	border-top: 1px solid #d4d4d4;
+}
+#otw-pcm-shortcode-dialog ul li{
+	position: relative;
+	margin: 0px;
+}
+#otw-shortcode-editor-buttons{
+	background: none repeat scroll 0 0 #EDEDED;
+	border-bottom: 1px solid #DDDDDD;
+	padding: 12px 0px 8px;
+}
+#otw-shortcode-editor-buttons-bottom{
+	background: none repeat scroll 0 0 #EDEDED;
+	padding: 12px 0px 8px 0;
+	border-top: 1px solid #DDDDDD;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+#otw-shortcode-editor-buttons .alignleft input{
+	margin-left: 20px;
+}
+#otw-shortcode-editor-buttons .alignright input{
+	margin-right: 20px;
+}
+#otw-shortcode-editor-buttons-bottom .alignleft input{
+	margin-left: 20px;
+}
+#otw-shortcode-editor-buttons-bottom .alignright input{
+	margin-right: 20px;
+}
+.otw-shortcode-editor-body{
+	width: 920px;
+	padding: 0 15px 40px 15px;
+	margin-top: 20px;
+}
+.otw-shortcode-editor-preview-container{
+	width: 350px;
+	position: relative;
+}
+.otw-shortcode-editor-preview-wrapper{
+	width: 350px;
+}
+.otw-shortcode-editor-preview-wrapper h3{
+	border-bottom: 1px solid #E7E7E7;
+	font-size: 13px;
+	padding: 7px 0;
+	margin: 0px;
+}
+.otw-shortcode-editor-preview{
+
+}
+.otw-shortcode-editor-body th{
+	border-bottom: 1px solid #E7E7E7;
+	font-size: 13px;
+	padding: 7px 0;
+	height: 20px;
+}
+.otw-shortcode-editor-error{
+	background-color: #FFEBE8;
+	border: 1px solid #CC0000;
+}
+.otw-shortcode-editor-body .otw_empty_head{
+	border: none;
+	width: 10px;
+}
+.otw-clear{
+	clear: both;
+}
+#wp-link-wrap{
+	z-index: 5000117 !important;
+}
